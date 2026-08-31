@@ -52,8 +52,6 @@ declarado é que está errado.
 **Correção:** `df['capacity_bytes'].to_numpy().view('int64')` reinterpreta a mesma região de
 memória com o tipo correto. Todas as 12 capacidades (0,08 TB a 8 TB) foram recuperadas.
 
-Sem essa correção, qualquer análise por capacidade — inclusive o dimensionamento da frota —
-seria impossível.
 
 ### 2.2 Descontinuidade temporal não documentada
 
