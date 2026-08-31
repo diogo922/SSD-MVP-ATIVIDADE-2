@@ -37,31 +37,11 @@ de confiabilidade a uma recomendação de configuração, orçamento e cronogram
 | Período | 50 dias observados (jan e abr/2016) |
 | Atributos | 90 métricas SMART + metadados |
 
-### A base serve para este problema? Uma avaliação honesta
 
-**Serve para a dimensão de risco — e apenas para ela.** Essa é a limitação estrutural do
-trabalho, e escondê-la comprometeria a validade da análise.
-
-O dataset **não contém** preço de disco, salário de técnico, lead time de fornecedor ou
-cronograma de obra. Portanto, o sistema foi desenhado em **duas camadas explicitamente separadas**:
-
-| Camada | Conteúdo | Origem | Status |
-|---|---|---|---|
-| **Empírica** | Taxa de falha por modelo, predição individual de falha | Estimada de 66 mil discos reais | Evidência |
-| **Paramétrica** | Preços, mão de obra, prazos, lead times | Premissas declaradas no dicionário `P` | Hipótese testável |
-
-Essa separação é uma escolha metodológica, não uma limitação disfarçada. Um DSS legítimo
-**mede o que pode ser medido e parametriza o resto de forma auditável** — com análise de
-sensibilidade para mostrar quanto a decisão depende de cada premissa. A alternativa (inventar
-custos e apresentá-los como resultado) seria mais impressionante e menos verdadeira.
-
----
 
 ## 2. Auditoria de qualidade dos dados
 
-Dois defeitos foram encontrados no arquivo e corrigidos antes de qualquer análise.
-
-### 2.1 Coluna `capacity_bytes` corrompida
+### 2.1 Coluna `capacity_bytes` 
 
 O valor armazenado é `1.97665142785814e-311` — um número *denormal*, praticamente zero.
 
